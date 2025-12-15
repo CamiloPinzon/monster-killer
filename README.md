@@ -9,16 +9,16 @@ Monster Killer is an interactive browser-based game where players engage in comb
 ## ✨ Features
 
 - **Health System**: Visual health bars for both player and monster
-- **Attack Mechanics**: Deal damage to the monster
-- **Monster Counterattack**: The monster fights back after each attack
-- **Bonus Life**: Player starts with 1 bonus life
-- **Game Over Detection**: Win/lose conditions based on health
+- **Attack Mechanics**: Deal damage to the monster with regular attacks
+- **Strong Attack**: Deal more damage (up to 17) at the cost of higher monster counterattack
+- **Heal**: Restore player health during battle (up to 20 HP)
+- **Monster Counterattack**: The monster fights back after each player action
+- **Bonus Life System**: Player starts with 1 bonus life that activates automatically when health reaches 0
+- **Game Over Detection**: Win/lose/draw conditions based on health
 
 ## 🎯 Planned Features
 
-The following features are available in the UI but not yet fully implemented:
-- **Strong Attack**: Deal more damage at the cost of higher risk
-- **Heal**: Restore player health during battle
+The following feature is available in the UI but not yet fully implemented:
 - **Battle Log**: View the history of all actions taken during the game
 
 ## 🚀 Getting Started
@@ -70,22 +70,40 @@ control-03-monster-killer-starting-project/
 ## 🎮 How to Play
 
 1. **Start the Game**: Open `index.html` in your browser
-2. **Attack**: Click the "ATTACK" button to deal damage to the monster
-3. **Monitor Health**: Watch both health bars to track your progress
-4. **Win Condition**: Reduce the monster's health to 0 to win
-5. **Lose Condition**: If your health reaches 0, you lose
+2. **Attack**: Click the "ATTACK" button to deal regular damage (up to 10) to the monster
+3. **Strong Attack**: Click the "STRONG ATTACK" button to deal more damage (up to 17), but the monster will counterattack harder
+4. **Heal**: Click the "HEAL" button to restore your health (up to 20 HP), but the monster will still attack you
+5. **Monitor Health**: Watch both health bars to track your progress
+6. **Bonus Life**: If your health reaches 0, your bonus life will automatically activate and restore you
+7. **Win Condition**: Reduce the monster's health to 0 while keeping yours above 0
+8. **Lose Condition**: If your health reaches 0 (after bonus life is used), you lose
+9. **Draw Condition**: If both player and monster reach 0 health simultaneously, it's a draw
 
 ## 🔧 Game Mechanics
 
 ### Attack System
-- **Player Attack**: Deals random damage up to `ATTACK_VALUE` (10)
-- **Monster Attack**: Deals random damage up to `MONSTER_ATTACK_VALUE` (12)
-- **Turn Order**: Player attacks first, then monster counterattacks
+- **Regular Attack**: Deals random damage up to `ATTACK_VALUE` (10)
+- **Strong Attack**: Deals random damage up to `STRONG_ATTACK_VALUE` (17)
+- **Monster Attack**: Deals random damage up to `MONSTER_ATTACK_VALUE` (21)
+- **Turn Order**: Player performs an action (attack/heal), then monster counterattacks
 
 ### Health System
 - Both player and monster start with 100 health points
 - Health is displayed using HTML5 progress bars
 - Health decreases when damage is dealt
+- Health increases when player uses heal ability
+
+### Heal System
+- **Heal Value**: Restores up to `HEAL_VALUE` (20) health points
+- **Smart Healing**: Cannot heal beyond maximum health (100)
+- **Monster Response**: Monster still attacks after healing
+
+### Bonus Life System
+- Player starts with 1 bonus life
+- Automatically activates when player health reaches 0
+- Restores player to their health before the fatal blow
+- Can only be used once per game
+- Visual indicator removed from UI after use
 
 ## 💻 Technical Details
 
@@ -100,21 +118,22 @@ control-03-monster-killer-starting-project/
 - Functions and arrow functions
 - Variables and constants
 - Conditional statements
-- setTimeout for delayed actions
+- Function parameters and mode handling
+- State management (health tracking, bonus life flag)
 
 ## 🎨 Customization
 
 You can customize the game by modifying these constants in `app.js`:
-- `ATTACK_VALUE`: Maximum damage player can deal (default: 10)
-- `MONSTER_ATTACK_VALUE`: Maximum damage monster can deal (default: 12)
+- `ATTACK_VALUE`: Maximum damage for regular attack (default: 10)
+- `STRONG_ATTACK_VALUE`: Maximum damage for strong attack (default: 17)
+- `MONSTER_ATTACK_VALUE`: Maximum damage monster can deal (default: 21)
+- `HEAL_VALUE`: Maximum health restored by heal ability (default: 20)
 - `chosenMaxLife`: Starting health for both player and monster (default: 100)
 
 ## 📝 Development Notes
 
-This is a starting project, meaning some features are scaffolded but not yet implemented. The following buttons exist in the UI but need functionality:
-- Strong Attack button
-- Heal button
-- Show Log button
+Most core features are now implemented! The following feature is still pending:
+- **Show Log button**: Battle log functionality to track game history
 
 ## 🤝 Contributing
 
