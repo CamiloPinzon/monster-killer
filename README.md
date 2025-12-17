@@ -19,7 +19,7 @@ Monster Killer is an interactive browser-based game where players engage in comb
 ## 🎯 Planned Features
 
 The following feature is available in the UI but not yet fully implemented:
-- **Battle Log**: View the history of all actions taken during the game
+- **Battle Log**: The logging system tracks all game events (attacks, heals, bonus life, game over) and stores them in an array. Events are currently logged to the browser console. The "SHOW LOG" button exists in the UI but needs to be connected to display the log entries.
 
 ## 🚀 Getting Started
 
@@ -132,8 +132,8 @@ You can customize the game by modifying these constants in `app.js`:
 
 ## 📝 Development Notes
 
-Most core features are now implemented! The following feature is still pending:
-- **Show Log button**: Battle log functionality to track game history
+Most core features are now implemented! The logging system is functional and tracks all game events. The following feature is still pending:
+- **Show Log button**: Connect the "SHOW LOG" button to display the battle log entries in the UI (currently events are logged to console)
 
 ## 🤝 Contributing
 
