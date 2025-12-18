@@ -16,10 +16,11 @@ Monster Killer is an interactive browser-based game where players engage in comb
 - **Bonus Life System**: Player starts with 1 bonus life that activates automatically when health reaches 0
 - **Game Over Detection**: Win/lose/draw conditions based on health
 
-## 🎯 Planned Features
+## ✨ Battle Log System
 
-The following feature is available in the UI but not yet fully implemented:
-- **Battle Log**: The logging system tracks all game events (attacks, heals, bonus life, game over) and stores them in an array. Events are currently logged to the browser console. The "SHOW LOG" button exists in the UI but needs to be connected to display the log entries.
+- **Event Tracking**: The logging system tracks all game events (attacks, heals, bonus life, game over) and stores them in an array
+- **Show Log Button**: Click the "SHOW LOG" button to view all battle events in the browser console
+- **Log Entries**: Each log entry contains event type, player health, monster health, damage dealt, and healing amount
 
 ## 🚀 Getting Started
 
@@ -75,9 +76,10 @@ control-03-monster-killer-starting-project/
 4. **Heal**: Click the "HEAL" button to restore your health (up to 20 HP), but the monster will still attack you
 5. **Monitor Health**: Watch both health bars to track your progress
 6. **Bonus Life**: If your health reaches 0, your bonus life will automatically activate and restore you
-7. **Win Condition**: Reduce the monster's health to 0 while keeping yours above 0
-8. **Lose Condition**: If your health reaches 0 (after bonus life is used), you lose
-9. **Draw Condition**: If both player and monster reach 0 health simultaneously, it's a draw
+7. **View Battle Log**: Click "SHOW LOG" to see all battle events in the browser console
+8. **Win Condition**: Reduce the monster's health to 0 while keeping yours above 0
+9. **Lose Condition**: If your health reaches 0 (after bonus life is used), you lose
+10. **Draw Condition**: If both player and monster reach 0 health simultaneously, it's a draw
 
 ## 🔧 Game Mechanics
 
@@ -132,8 +134,14 @@ You can customize the game by modifying these constants in `app.js`:
 
 ## 📝 Development Notes
 
-Most core features are now implemented! The logging system is functional and tracks all game events. The following feature is still pending:
-- **Show Log button**: Connect the "SHOW LOG" button to display the battle log entries in the UI (currently events are logged to console)
+All core features are implemented! The game includes:
+- Complete battle mechanics (attack, strong attack, heal)
+- Health system with visual indicators
+- Bonus life system
+- Battle log tracking (viewable via console)
+- Game over detection (win/lose/draw)
+
+The battle log is fully functional and can be viewed by clicking the "SHOW LOG" button, which displays all events in the browser console.
 
 ## 🤝 Contributing
 

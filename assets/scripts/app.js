@@ -96,44 +96,28 @@ const reset = () => {
 	resetBonusLife();
 };
 
-const addLogEntry = (event, playerHealth, monsterHealth, damage, healed) => {
-	let logEntry = {};
-	switch (event) {
-		case LOG_EVENT_PLAYER_HEAL:
-			logEntry = {
-				event: event,
-				playerHealth: playerHealth,
-				monsterHealth: monsterHealth,
-				healed: healed,
-			};
-			break;
-		case LOG_EVENT_BONUS_LIFE:
-			logEntry = {
-				event: event,
-				playerHealth: playerHealth,
-				monsterHealth: monsterHealth,
-			};
-			break;
-		case LOG_EVENT_GAME_OVER:
-			logEntry = {
-				event: event,
-				playerHealth: playerHealth,
-				monsterHealth: monsterHealth,
-			};
-			break;
-		default:
-			logEntry = {
-				event: event,
-				playerHealth: playerHealth,
-				monsterHealth: monsterHealth,
-				damage: damage,
-			};
-			break;
-	}
+const addLogEntry = (
+	event,
+	playerHealth,
+	monsterHealth,
+	damage = "--",
+	healed = "--"
+) => {
+	let logEntry = {
+		event: event,
+		playerHealth: playerHealth,
+		monsterHealth: monsterHealth,
+		damage: damage,
+		healed: healed,
+	};
 	logEntries.push(logEntry);
+};
+
+const showLog = () => {
 	console.log(logEntries);
 };
 
 attackBtn.addEventListener("click", () => attackMonster("attack"));
 strongAttackBtn.addEventListener("click", () => attackMonster("strong-attack"));
 healBtn.addEventListener("click", healPlayer);
+logBtn.addEventListener("click", showLog);
